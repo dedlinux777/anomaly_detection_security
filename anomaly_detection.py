@@ -30,7 +30,7 @@ from sklearn.neural_network import MLPClassifier
 # Read parquet files and save as CSV
 df1 = pd.read_parquet(r'D:\dedlinux ADVI\FInal Project\AI-driven preemptive cyber security measures by proactive threat hunting for anomalies detection\dataset\UNSW_NB15_training-set.parquet')
 df1.to_csv('UNSW_NB15_training-set.csv')
-df2 = pd.read_parquet(r'D:\dedlinux ADVI\FInal Project\AI-driven preemptive cyber security measures by proactive threat hunting for anomalies detection\dataset\UNSW_NB15_training-set.parquet')
+df2 = pd.read_parquet(r'D:\dedlinux ADVI\FInal Project\AI-driven preemptive cyber security measures by proactive threat hunting for anomalies detection\dataset\UNSW_NB15_testing-set.parquet')
 df2.to_csv('UNSW_NB15_testing-set.csv')
 
 # Set display options
@@ -206,12 +206,7 @@ model_performance.style.background_gradient(cmap='coolwarm').format({'Accuracy':
 print(model_performance)
 
 # Save model_performance DataFrame as a pickle file
-model_performance.to_pickle('model_performance.pkl')
-
-
-# Assuming you have already trained your Random Forest model using the provided code
-model = RandomForestClassifier(n_estimators=100, n_jobs=-1, random_state=0, bootstrap=True)
-model.fit(X_train, y_train)
+model_performance.to_pickle('/models/model_performance.pkl')
 
 # Save the model to a file using pickle
 with open('random_forest_model.pkl', 'wb') as f:
